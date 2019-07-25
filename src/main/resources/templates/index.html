@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        $(function() {
+            $("#btn6").click(function() {
+                location = "person_exportExcel";
+            });
+            $("#btn7").click(function() {
+                var aa = $("#upload").val();
+                if (aa != "") {
+                    kk.submit();
+                } else {
+                    alert("请选择Excel文件！");
+                }
+            });
+        });
+    </script>
+
+</head>
+<body>
+<tr>
+    <td colspan="21">
+        <form action="<%=request.getContextPath()%>/person_listPerson"
+              method="post">
+            <input type="button" value="导出Excel表" id="btn6">
+            <input type="button" value="全选" id="btn1">
+            <input type="button" value="反选" id="btn3">
+            <input type="button" value="添加" id="add">
+            <input type="button" value="批量删除" id="btn4">
+            <input type="button" value="修改" id="update">
+            <input type="text" name="currentPage">
+            <input type="submit" value="前往">
+        </form>
+        <form action="person_importExcel" method="post" name="kk" enctype="multipart/form-data">
+            <file label="导入Excel" name="myfile" theme="simple" id="upload" />
+            <input type="button" value="导入Excel" id="btn7">
+        </form>
+    </td>
+</tr>
+
+</body>
+</html>
